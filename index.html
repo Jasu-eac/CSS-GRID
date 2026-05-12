@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Laboratory Activity</title>
+
+    <style>
+
+        * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header {
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background-color: hsl(0, 92%, 50%);
+    color: rgb(255, 255, 255);
+    
+}
+
+.logo {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 30px;
+}
+
+.navbar {
+    display: flex;
+    font-size: 15px;
+    gap: 30px;
+}
+
+.navbar a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: rgb(250, 250, 250);
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: hsl(240, 100%, 60%);
+}
+
+.sidebar {
+    font-family:'Times New Roman', Times, serif ;
+    letter-spacing: 10%;
+    padding: 24px;
+    background-color: antiquewhite;
+    border-right: 1px solid #d1b6b6;
+    grid-area: sidebar;
+}
+
+.main {
+    grid-area: main;
+    padding: 24px;
+}
+
+.footer {
+    grid-area: footer;
+    padding: 16px;
+    text-align: center;
+    background-color: rgb(206, 35, 35);
+    color: white;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 100px;
+
+}   
+
+.card {
+    display: flex;
+    min-height: 120px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+.card:hover{
+    transform: scale(1.2);
+    transition-duration: 1s;
+    background-color: rgba(223, 30, 30, 0.781);
+}
+
+@media (max-width: 768px) {
+    .page {
+        grid-template-areas: 
+        "header" 
+        "sidebar"
+        "main"
+        "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="logo">
+                <img src="http://www.eac.edu.ph/wp-content/uploads/2018/10/emblem.png" alt="Logo" height="75px">Student Portal
+            </div>
+        
+            <nav class="navbar">
+                <a href="#">HOME</a>
+                <a href="#">COURSES</a>
+                <a href="#">GRADES</a>
+                <a href="#">CONTACT</a>      
+        
+            </nav>
+        </header>
+
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <p>Dashboard</p>
+            <p>Class Schedule</p>
+            <p>Announcement</p>
+        </aside>
+
+        <main class="main">
+            <h1>My Courses</h1>
+            <section class="card-grid">
+                <article class="card"><img src="https://www.clipartkey.com/mpngs/m/210-2104705_html-logo-png-transparent-background.png" alt="image" height="100px"> HTML Basics</article>
+                <article class="card"><img src="https://cdn.freebiesupply.com/logos/large/2x/css3-logo-png-transparent.png" alt="" height="100px">CSS Fundamentals</article>
+                <article class="card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/2147485209/images/WgUgHhj8Tl64ZsgQfa4G_file.jpg" alt="IMAGE" height="100px">CSS Grids</article>
+                <article class="card"><img src="https://wallpapers.com/images/hd/java-script-logo-transparent-background-939jnyndiiwt2cml-2.png" alt="IMAGE" height="100px">Java Script</article>
+                <article class="card"><img src="https://s.clipartkey.com/mpngs/s/15-156872_knowledge-clipart-effective-teaching-teach-web-design-no.png" alt="IMAGE" height="100px">Web Design</article>
+                <article class="card"><img src="https://cdn-icons-png.freepik.com/512/5956/5956592.png" alt="IMAGE" height="100px">Final Project</article>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>CSS Grid Laboratory Activity.</p>
+        </footer>
+    </div>
+</body>
+</html>
